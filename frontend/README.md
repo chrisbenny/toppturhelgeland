@@ -1,6 +1,6 @@
-# frontend
+# Frontend for my application running VUEJS
 
-> En toppturside for turer pA helgeland
+> An application for creating Trips in my region
 
 ## Build Setup
 
