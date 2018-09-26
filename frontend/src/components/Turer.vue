@@ -14,8 +14,10 @@
             <h2>{{tur.title}}</h2>
             <img v-if="tur.mainImage" :src="imageUrlFor(tur.mainImage).ignoreImageParams().width(300)"/>
             <div>
-                <div>{{tur.publishedAt}}</div>
-            
+               
+            <span v-if="tur.author" class="tur-liste__authored-by">
+              Directed by {{tur.author}}
+            </span>
             </div>
         </router-link>
       </li>
@@ -32,9 +34,9 @@ const imageBuilder = imageUrlBuilder(sanity)
 const query = `*[_type == "tur"] {
   _id,
   title,
-  author,
   mainImage,
   publishedAt,
+  "author": author[job == "Director"][0].person->name,
 }[0...50]`
 
 export default {
